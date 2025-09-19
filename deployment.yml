@@ -17,6 +17,12 @@ spec:
       containers:
       - name: sample-python-app
         image: prasannapandugula/python-sample-app-demo:vl
+        volumeMounts:
+          - name: test-cm
+            mountPath: /opt
         ports:
         - containerPort: 8000
-
+      volumes:
+        - name: db-connection
+          configMap:
+            name: test-cm
